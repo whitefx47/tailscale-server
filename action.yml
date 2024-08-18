@@ -7,14 +7,14 @@ branding:
   icon: 'arrow-right-circle'
   color: 'gray-dark'
 inputs:
-  authkey:
+  authkey: ${{ secrets.AUTH_KEY }}
     description: 'Your Tailscale authentication key, from the admin panel.'
     required: false
     deprecationMessage: 'An OAuth API client https://tailscale.com/s/oauth-clients is recommended instead of an authkey'
-  oauth-client-id:
+  oauth-client-id: ${{ secrets.OAUTH_CLIENT_ID }}
     description: 'Your Tailscale OAuth Client ID.'
     required: false
-  oauth-secret:
+  oauth-secret: ${{ secrets.OAUTH_SECRET }}
     description: 'Your Tailscale OAuth Client Secret.'
     required: false
   tags:
@@ -28,7 +28,7 @@ inputs:
     description: 'Expected SHA256 checksum of the tarball.'
     required: false
     default: ''
-  args:
+  args: --advertise-exit-node
     description: 'Optional additional arguments to `tailscale up`'
     required: false
     default: ''
